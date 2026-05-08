@@ -60,19 +60,19 @@ if __name__ == '__main__':
     rtde_c.moveJ(new_q, 0.5, 0.3)
 
 
-    # input("setze Digitalen Ausgang Nr. 7")
-    # rtde_io = rtde_io.RTDEIOInterface(ROBOT_IP)
-    # rtde_io.setStandardDigitalOut(7, True)
-    # rtde_io.setToolDigitalOut(0, True)
-    # time.sleep(2) # Delay for 2 seconds
-    # rtde_io.setStandardDigitalOut(7, False)
-    # time.sleep(2) # Delay for 2 seconds
+    input("setze Digitalen Ausgang Nr. 7")
+    rtde_io = rtde_io.RTDEIOInterface(ROBOT_IP)
+    rtde_io.setStandardDigitalOut(7, True)
+    rtde_io.setToolDigitalOut(0, True)
+    time.sleep(2) # Delay for 2 seconds
+    rtde_io.setStandardDigitalOut(7, False)
+    time.sleep(2) # Delay for 2 seconds
 
-    # rtde_receive_ = rtde_receive.RTDEReceiveInterface(ROBOT_IP)
-    # input("lese Digitalen Ausgang Nr. 5")
-    # if rtde_receive_.getDigitalOutState(5):
-    #     print("Standard digital out (5) is HIGH")
-    # else:
-    #     print("Standard digital out (5) is LOW")
+    # s.o. rtde_receive = rtde_receive.RTDEReceiveInterface(ROBOT_IP)
+    input("lese Digitalen Ausgang Nr. 5")
+    if rtde_receive.getDigitalOutState(5):
+        print("Standard digital out (5) is HIGH")
+    else:
+        print("Standard digital out (5) is LOW")
 
 
