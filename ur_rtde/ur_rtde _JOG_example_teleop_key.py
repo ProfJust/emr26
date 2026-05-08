@@ -7,7 +7,7 @@
 print(" THIS SOFTWARE IS UNDER HEAVY CONSTRUCTION ")
 import pygame
 pygame.mixer.init()
-sound = pygame.mixer.Sound('owin31.wav')
+# sound = pygame.mixer.Sound('owin31.wav')
 sound.play()
 
 import rtde_control
