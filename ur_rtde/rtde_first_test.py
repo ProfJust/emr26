@@ -1,5 +1,5 @@
 # rtde_first_test.py
-# Tested by OJ 6.11.25
+# Tested by OJ 10.5.26
 # https://github.com/githubuser0xFFFF/py_robotiq_gripper/tree/master
 # https://sdurobotics.gitlab.io/ur_rtde/examples/examples.html
 
@@ -9,13 +9,15 @@ import rtde_io
 import robotiq_gripper
 
 import time
+ROBOT_IP = "192.168.0.17"  # UR3e - Roboter 4 IP-Adresse des UR-Roboters anpassen
 
-ROBOT_IP = "192.168.0.11"
+
 def log_info(gripper):
     print(f"Pos: {str(gripper.get_current_position()): >3}  "
           f"Open: {gripper.is_open(): <2}  "
           f"Closed: {gripper.is_closed(): <2}  ")
-    
+
+
 def gripper_first_test():
     print("Creating gripper...")
     gripper = robotiq_gripper.RobotiqGripper()
@@ -28,6 +30,7 @@ def gripper_first_test():
     log_info(gripper)
     gripper.move_and_wait_for_pos(0, 255, 255)
     log_info(gripper)
+
 
 def deg2rad(grad):
     return grad * 180.0 / 3.1415927
@@ -42,8 +45,8 @@ if __name__ == '__main__':
     actual_q = rtde_r.getActualQ()  # in radian
     print("Aktueller Zustand - Gelenkpositionen in Grad ")
     for arg in actual_q:
-        print(arg *180.0/3.1415927)
-    
+        print(arg * 180.0/3.1415927)
+  
     input("Roboter startet Bewegung nach Eingabe beliebiger Taste")
     rtde_c = rtde_control.RTDEControlInterface(ROBOT_IP)
     
@@ -59,20 +62,22 @@ if __name__ == '__main__':
     print(new_q)
     rtde_c.moveJ(new_q, 0.5, 0.3)
 
-
     input("setze Digitalen Ausgang Nr. 7")
     rtde_io = rtde_io.RTDEIOInterface(ROBOT_IP)
     rtde_io.setStandardDigitalOut(7, True)
+
     rtde_io.setToolDigitalOut(0, True)
     time.sleep(2) # Delay for 2 seconds
+
     rtde_io.setStandardDigitalOut(7, False)
     time.sleep(2) # Delay for 2 seconds
 
     # s.o. rtde_receive = rtde_receive.RTDEReceiveInterface(ROBOT_IP)
     input("lese Digitalen Ausgang Nr. 5")
-    if rtde_receive.getDigitalOutState(5):
+    if rtde_r.getDigitalOutState(5):
         print("Standard digital out (5) is HIGH")
     else:
         print("Standard digital out (5) is LOW")
 
-
+""" Ergänze Lichttaster einlesen und Ausgabe auf Konsole, 
+z.B. "Lichttaster 1 ist gedrückt" oder "Lichttaster 1 ist nicht gedrückt"     """

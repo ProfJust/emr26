@@ -7,7 +7,10 @@ pygame.joystick.init()
 
 # Prüfen, ob ein Joystick gefunden wurde
 if pygame.joystick.get_count() == 0:
-    print("❌ Kein Gamepad gefunden!")
+    print("❌ Kein Gamepad gefunden! - Programm wird beendet.")
+    print("   Bitte schließe ein Gamepad an teste den Windows-Treiber ")
+    print("   Win + R → joy.cpl → Eigenschaften → Testen")
+
     sys.exit()
 else:
     print(f"✅ {pygame.joystick.get_count()} Gamepad(s) gefunden.")

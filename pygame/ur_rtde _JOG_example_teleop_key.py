@@ -1,25 +1,31 @@
 # jog-example https://sdurobotics.gitlab.io/ur_rtde/examples/examples.html
 # changed to Python
 # Ziel => real UR3e per Tatstatur bewegen
-# Last edited by Olaf Just at 19.05.2025
-
-### MAKE A BEEP ###
-print(" THIS SOFTWARE IS UNDER HEAVY CONSTRUCTION ")
-import pygame
-pygame.mixer.init()
-# sound = pygame.mixer.Sound('owin31.wav')
-sound.play()
+# Last edited by Olaf Just at 11.05.2026
+# tested with UR3e - Roboter 4
 
 import rtde_control
 import msvcrt
 import time
 
-ROBOT_IP = "192.168.0.3"
-rtde_c = rtde_control.RTDEControlInterface("ROBOT_IP")
-speed_magnitude = 0.15
+# ROBOT_IP = "192.168.0.3"
+ROBOT_IP = "192.168.0.17"  # UR3e - Roboter 4 
+# ggf. IP-Adresse des UR-Roboters anpassen
+
+
+rtde_c = rtde_control.RTDEControlInterface(ROBOT_IP)
+speed_magnitude = 0.05
 speed_vector = [0, 0, 0, 0, 0, 0]
 
 try:
+    # ## WARNING ###
+    print("\a\a\a\a THIS SOFTWARE IS UNDER HEAVY CONSTRUCTION, /" 
+          " USE WITH CAUTION! \a\a\a\a Press Enter to continue...")
+    
+    input("Pfeiltasten bewegen den Roboter,\n "
+          "Space-Taste zum Stoppen der Bewegung...\n"
+          "q zum Beenden... "
+          "Verstanden? ")
     while True:
         if msvcrt.kbhit():
             key = msvcrt.getch()
