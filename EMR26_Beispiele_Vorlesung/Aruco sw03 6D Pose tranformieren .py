@@ -1,4 +1,15 @@
-"""Aruco-Marker erkennen und Pose zur Roboterbasis berechnen"""
+"""Aruco-Marker erkennen und dessen Pose zur Roboterbasis berechnen
+Dazu muss die Pose der Kamera relativ zur Roboterbasis bekannt  sein
+
+# Beispiel: Kamera relativ zur Roboterbasis
+        # Werte müssen Sie kalibrieren oder messen!
+        T_base_camera = np.array([
+            [1, 0, 0, 0.300],
+            [0, 1, 0, 0.000],
+            [0, 0, 1, 0.500],
+            [0, 0, 0, 1.000]
+        ])
+"""
 # THIS FILE IS UNDER CONSTRUCTION - NOT YET FUNCTIONAL
 import cv2
 print("Nutze OpenCV Version:", cv2.__version__)
@@ -108,7 +119,7 @@ try:
                         0.05  # Größe des Koordinatenkreuzes
                     )
 
-                    # Translation in Meter
+        # Translation in Meter
         x, y, z = tvec.flatten()
 
         # Rotation: rvec -> Rotationsmatrix
