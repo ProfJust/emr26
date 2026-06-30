@@ -4,6 +4,12 @@
 # .......................................
 # edited WHS, OJ, 09.11.2025
 import cv2 as cv
+import os
+# Python sucht das File im aktuellen Arbeitsordner, 
+# nicht unbedingt im Ordner des Skripts.
+# ==> In den Arbeitsordner wechseln 
+script_dir = os.path.dirname(os.path.abspath(__file__))
+os.chdir(script_dir)
 
 # lese Bild von Festplatte
 img = cv.imread(r'C:\mySciebo\_SRO\UR_Programme PC Python RTDE\SRO_OpenCV\bild_von_webcam.png')
