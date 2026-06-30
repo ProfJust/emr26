@@ -18,7 +18,7 @@ from PyQt6.QtCore import QSize
 from PyQt6.QtWidgets import QPushButton 
 from PyQt6.QtWidgets import QLabel
 
-ROBOT_IP = "192.168.0.3"
+ROBOT_IP = "192.168.1.111"
 
 class MainWindow(QMainWindow):
     def __init__(self):

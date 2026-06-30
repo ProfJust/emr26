@@ -10,6 +10,7 @@ import robotiq_gripper
 
 import time
 ROBOT_IP = "192.168.0.17"  # UR3e - Roboter 4 IP-Adresse des UR-Roboters anpassen
+# ROBOT_IP = "192.168.1.111"  # UR3e - Roboter 2 IP-Adresse des UR-Roboters anpassen
 
 
 def log_info(gripper):
